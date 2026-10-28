@@ -1,18 +1,12 @@
 :root {
-  font-family:
-    Inter,
-    "Noto Sans JP",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  color: #293c36;
-  background: #f7f8f4;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background: var(--color-canvas);
   font-synthesis: none;
   font-weight: 400;
-  --green: #215c49;
-  --muted: #87918a;
-  --border: #e6eae3;
+  --green: var(--color-primary);
+  --muted: var(--color-text-muted);
+  --border: var(--color-border);
 }
 * {
   box-sizing: border-box;
@@ -39,8 +33,8 @@ button:disabled {
 }
 button {
   transition:
-    background 0.18s,
-    transform 0.18s;
+    background var(--duration-fast),
+    transform var(--duration-fast);
 }
 button:hover {
   filter: brightness(0.97);
@@ -52,7 +46,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid #8ab9a1;
+  outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
 a {
@@ -73,7 +67,7 @@ button {
   width: 236px;
   position: fixed;
   inset: 0 auto 0 0;
-  background: #fbfcf9;
+  background: var(--color-surface-subtle);
   border-right: 1px solid var(--border);
   padding: 31px 21px;
   display: flex;
@@ -272,13 +266,13 @@ main {
 }
 .primary {
   border: 0;
-  border-radius: 7px;
-  background: var(--green);
-  color: #fff;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-surface);
   padding: 12px 17px;
   font-size: 11px;
   font-weight: 550;
-  box-shadow: 0 3px 6px #1c513013;
+  box-shadow: var(--shadow-sm);
   white-space: nowrap;
 }
 .primary > .icon {
@@ -433,9 +427,9 @@ main {
   margin: 19px 0 25px;
 }
 .metric-card {
-  background: white;
+  background: var(--color-surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   padding: 19px 19px 15px;
   min-width: 0;
   transition:
@@ -443,7 +437,7 @@ main {
     transform 0.2s;
 }
 .metric-card:hover {
-  box-shadow: 0 7px 22px #334c2910;
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 .color-0 {
@@ -602,9 +596,9 @@ main {
   margin-bottom: 24px;
 }
 .panel {
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   padding: 23px;
 }
 .section-header p {
@@ -809,19 +803,19 @@ footer .icon {
 }
 .warning {
   padding: 14px;
-  color: #98683b;
-  background: #fff0dc;
-  border-radius: 7px;
+  color: var(--color-warning-text);
+  background: var(--color-warning-surface);
+  border-radius: var(--radius-sm);
   font-size: 12px;
   margin-bottom: 20px;
 }
 dialog {
   border: 1px solid var(--border);
-  border-radius: 15px;
+  border-radius: var(--radius-xl);
   padding: 34px;
   width: min(480px, calc(100% - 32px));
-  box-shadow: 0 25px 100px #173b2926;
-  color: #293c36;
+  box-shadow: var(--shadow-dialog);
+  color: var(--color-text);
   max-height: calc(100dvh - 40px);
 }
 dialog::backdrop {
@@ -851,7 +845,7 @@ dialog h2 {
 dialog label {
   display: block;
   font-size: 11px;
-  color: #6d7e62;
+  color: var(--color-text-subtle);
   margin-bottom: 18px;
 }
 dialog input:not([type="radio"]) {
@@ -862,7 +856,7 @@ dialog input:not([type="radio"]) {
   border: 1px solid #dfe5d8;
   background: #fcfdfb;
   border-radius: 6px;
-  color: #293c36;
+  color: var(--color-text);
   min-width: 0;
 }
 dialog input::placeholder {
@@ -1037,11 +1031,11 @@ legend {
   background: none;
   border: 0;
   font-size: 10px;
-  color: #b77865;
+  color: var(--color-danger);
   margin-right: auto;
 }
 .form-error {
-  color: #b45e4f;
+  color: var(--color-danger);
   font-size: 12px;
   line-height: 1.6;
   margin: 12px 0 0;
@@ -1063,7 +1057,7 @@ legend {
   line-height: 1.8;
 }
 .toast.error {
-  background: #a85545;
+  background: var(--color-danger-strong);
 }
 .confetti {
   position: fixed;

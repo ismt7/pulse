@@ -8,6 +8,7 @@ import {
   YAxis,
 } from "recharts";
 import { average, days } from "../model";
+import { chartTheme } from "../theme";
 import type { ChartRange, Metric } from "../types";
 
 export function TrendChart({
@@ -34,12 +35,12 @@ export function TrendChart({
         >
           <defs>
             <linearGradient id="trend-area" x1="0" y1="0" x2="0" y2="1">
-              <stop stopColor="#60a58e" stopOpacity={0.23} />
-              <stop offset="1" stopColor="#60a58e" stopOpacity={0.01} />
+              <stop stopColor={chartTheme.primaryArea} stopOpacity={0.23} />
+              <stop offset="1" stopColor={chartTheme.primaryArea} stopOpacity={0.01} />
             </linearGradient>
           </defs>
           <CartesianGrid
-            stroke="#e9ede8"
+            stroke={chartTheme.grid}
             strokeDasharray="4 5"
             vertical={false}
           />
@@ -48,7 +49,7 @@ export function TrendChart({
             tickFormatter={(date) =>
               `${Number(date.slice(5, 7))}/${Number(date.slice(8))}`
             }
-            tick={{ fill: "#87957d", fontSize: 10 }}
+            tick={{ fill: chartTheme.axis, fontSize: 10 }}
             axisLine={false}
             tickLine={false}
             minTickGap={20}
@@ -57,7 +58,7 @@ export function TrendChart({
             domain={[0, 100]}
             ticks={[0, 25, 50, 75, 100]}
             tickFormatter={(value) => `${value}%`}
-            tick={{ fill: "#87957d", fontSize: 10 }}
+            tick={{ fill: chartTheme.axis, fontSize: 10 }}
             axisLine={false}
             tickLine={false}
           />
@@ -65,7 +66,7 @@ export function TrendChart({
             formatter={(value) => [`${value}%`, "平均達成率"]}
             labelFormatter={(date) => String(date).replaceAll("-", "/")}
             contentStyle={{
-              border: "1px solid #e6eae3",
+              border: `1px solid ${chartTheme.border}`,
               borderRadius: 8,
               fontSize: 12,
             }}
@@ -73,12 +74,12 @@ export function TrendChart({
           <Area
             type="linear"
             dataKey="value"
-            stroke="#387960"
+            stroke={chartTheme.primary}
             strokeWidth={3}
             fill="url(#trend-area)"
             dot={
               range === 7
-                ? { r: 3, fill: "#387960", stroke: "white", strokeWidth: 2 }
+                ? { r: 3, fill: chartTheme.primary, stroke: chartTheme.surface, strokeWidth: 2 }
                 : false
             }
             activeDot={{ r: 5 }}

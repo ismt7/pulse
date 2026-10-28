@@ -4,6 +4,8 @@
 
 PulseはReact、TypeScript、Viteで構築しています。スタイルはCSS、グラフはRecharts、テストはVitestとPlaywrightを使用しています。
 
+UIを変更する場合は [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) のトークン、コンポーネントの役割、アクセシビリティ基準に従ってください。
+
 Node.js 24とnpmを推奨します。対応するNode.jsの範囲は `package.json` の `engines` に記載しています。
 
 ## 開発環境

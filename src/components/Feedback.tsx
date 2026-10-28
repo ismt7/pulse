@@ -1,4 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
+import { celebrationColors } from "../theme";
 
 export interface Notification {
   id: number;
@@ -33,7 +34,7 @@ export function Confetti({ onDone }: { onDone: () => void }) {
           "--x": `${Math.random() * 100}vw`,
           "--delay": `${Math.random() * 0.5}s`,
           "--rotate": `${Math.random() * 360}deg`,
-          background: ["#4e8c70", "#e8ac78", "#a095c4", "#eed57e"][i % 4],
+          background: celebrationColors[i % celebrationColors.length],
         }) as CSSProperties,
     ),
   );

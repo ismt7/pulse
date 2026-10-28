@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { format } from "../format";
 import { latest } from "../model";
+import { chartTheme } from "../theme";
 import type { Metric } from "../types";
 
 export function MetricHistoryChart({ metric }: { metric: Metric }) {
@@ -27,7 +28,7 @@ export function MetricHistoryChart({ metric }: { metric: Metric }) {
           margin={{ top: 12, right: 15, left: 0, bottom: 0 }}
         >
           <CartesianGrid
-            stroke="#e9ede8"
+            stroke={chartTheme.grid}
             strokeDasharray="4 5"
             vertical={false}
           />
@@ -60,7 +61,7 @@ export function MetricHistoryChart({ metric }: { metric: Metric }) {
           <Line
             dataKey="total"
             type="linear"
-            stroke="#387960"
+            stroke={chartTheme.primary}
             strokeWidth={2}
             dot={data.length <= 30 ? { r: 3 } : false}
             activeDot={{ r: 5 }}
