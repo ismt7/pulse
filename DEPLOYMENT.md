@@ -2,6 +2,20 @@
 
 最初の配信先として、非公開S3バケットとCloudFrontを使用します。S3のWebサイト公開は使わず、Origin Access Control（OAC）を通じてCloudFrontだけがファイルを取得できます。
 
+## 現在の状態と残タスク
+
+設計と設定ファイルの追加まで完了しています。AWS環境での構築・デプロイ・動作確認は、運用開始時に実施する残タスクです。
+
+- [ ] Terraformを導入し、`terraform fmt -check` と `terraform validate` を実行する
+- [ ] 対象AWSアカウントで `terraform plan` の内容をレビューする
+- [ ] `terraform apply` でS3、CloudFront、IAMポリシーを作成する
+- [ ] GitHub OIDCロールと `production` Environmentを設定する
+- [ ] GitHub Actionsから初回デプロイを実行する
+- [ ] CloudFront URLで画面表示、更新、ブラウザ内データ保存を確認する
+- [ ] レスポンスヘッダー、キャッシュ、SPAフォールバックを確認する
+
+このチェックリストが完了するまでは、本番運用可能と判断しません。
+
 ## 構成
 
 ```text
