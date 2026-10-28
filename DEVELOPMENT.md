@@ -10,6 +10,37 @@ Node.js 24とnpmを推奨します。対応するNode.jsの範囲は `package.js
 
 ## 開発環境
 
+### Docker Composeを使う
+
+ローカルに必要なのはDocker DesktopまたはDocker EngineとComposeです。Node.jsをホストへ直接インストールせずに開発できます。
+
+```sh
+docker compose up --build
+```
+
+ブラウザで `http://localhost:5173` を開きます。ソースコードはホストからマウントされ、変更するとViteが画面を更新します。依存パッケージは名前付きボリューム `node_modules` に保存され、ホスト側の `node_modules` とは分離されます。
+
+コンテナ内で検証コマンドを実行する場合は、別のターミナルから次を実行します。
+
+```sh
+docker compose exec app npm test
+docker compose exec app npm run typecheck
+docker compose exec app npm run build
+```
+
+依存関係を更新した場合はイメージとボリューム内の依存パッケージを更新します。
+
+```sh
+docker compose build --no-cache app
+docker compose run --rm app npm ci
+```
+
+停止は `docker compose down`、依存パッケージ用ボリュームも削除する場合は `docker compose down --volumes` を使用します。ブラウザに保存されたPulseのデータはDockerボリュームではなくブラウザ側に残ります。
+
+VS Code Dev Containersを利用する場合は、このリポジトリを開いて「Reopen in Container」を実行してください。`.devcontainer/devcontainer.json` が同じComposeサービスを使用します。
+
+### Node.jsを直接使う
+
 ```sh
 npm ci
 npm run dev

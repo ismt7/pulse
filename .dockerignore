@@ -1,0 +1,17 @@
+.git
+.github
+.agents
+.codex
+.devcontainer
+.terraform
+node_modules
+dist
+playwright-report
+test-results
+*.local
+.env
+.env.*
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform.tfvars

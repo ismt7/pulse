@@ -1,0 +1,16 @@
+{
+  "name": "Pulse development",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "overrideCommand": true,
+  "remoteUser": "node",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Pulse development server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postCreateCommand": "npm ci"
+}
