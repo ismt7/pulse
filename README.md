@@ -85,3 +85,7 @@ e2e/                   Playwright のブラウザ操作テスト
 ## ライセンス
 
 このプロジェクトは [MIT License](LICENSE) のもとで公開されています。
+
+## セキュリティ検査
+
+GitHub Actionsで依存パッケージの監査、Pull Requestの依存関係レビュー、CodeQLによる静的解析を実行します。DependabotはnpmパッケージとGitHub Actionsの更新を毎週確認します。
