@@ -21,7 +21,7 @@ Viteはクラウド開発環境でもアクセスできるよう、全インタ�
 npm run dev -- --host 127.0.0.1
 ```
 
-サイトへのデプロイ設定は含みません。
+AWSへ配置する場合は [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください。S3とCloudFrontのTerraform構成、およびGitHub Actionsの手動デプロイを用意しています。
 
 ## 検証
 

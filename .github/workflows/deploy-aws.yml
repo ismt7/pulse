@@ -1,0 +1,47 @@
+name: Deploy frontend to AWS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: production-aws
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm test
+      - run: npm run build
+      - uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: Upload immutable assets
+        run: >-
+          aws s3 sync dist/assets s3://${{ vars.AWS_S3_BUCKET }}/assets
+          --delete
+          --cache-control "public,max-age=31536000,immutable"
+      - name: Upload application shell
+        run: >-
+          aws s3 sync dist s3://${{ vars.AWS_S3_BUCKET }}
+          --delete
+          --exclude "assets/*"
+          --cache-control "no-cache"
+      - name: Refresh application shell
+        run: >-
+          aws cloudfront create-invalidation
+          --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          --paths "/" "/index.html"

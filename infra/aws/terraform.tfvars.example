@@ -1,0 +1,11 @@
+aws_region  = "ap-northeast-1"
+bucket_name = "replace-with-a-globally-unique-pulse-bucket"
+
+# Set this when an existing GitHub OIDC role should receive deploy permissions.
+# deployment_role_name = "github-pulse-production"
+
+tags = {
+  Project     = "pulse"
+  Environment = "production"
+  ManagedBy   = "terraform"
+}
