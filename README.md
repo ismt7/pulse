@@ -27,6 +27,8 @@ npm run dev
 
 Dockerを利用する場合は `docker compose up --build` で起動できます。詳しい開発手順は [DEVELOPMENT.md](DEVELOPMENT.md) を参照してください。
 
+公開されたWindows、macOS、Linux向けデスクトップ版は [GitHub Releases](https://github.com/ismt7/pulse/releases) からダウンロードできます。リリース準備と対応ファイルについては [DESKTOP.md](DESKTOP.md) を参照してください。
+
 ## 目標と実績を記録する
 
 目標の作成時に「数値を増やす」または「数値を減らす」を選びます。増やす目標では、現在の合計を入力する「累計値・現在値」と、日々の値を足し上げる「日ごとの増分」を選べます。減らす目標では開始値を設定し、開始値から目標値までの減少量で達成率を計算します。

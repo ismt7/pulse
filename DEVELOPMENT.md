@@ -54,6 +54,8 @@ npm run dev -- --host 127.0.0.1
 
 AWSへ配置する場合は [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください。S3とCloudFrontのTerraform構成、およびGitHub Actionsの手動デプロイを用意しています。
 
+デスクトップ版を開発・配布する場合は [DESKTOP.md](DESKTOP.md) を参照してください。
+
 ## 検証
 
 ```sh

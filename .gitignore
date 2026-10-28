@@ -12,3 +12,4 @@ test-results/
 *.tfplan
 terraform.tfvars
 crash.log
+src-tauri/target/
