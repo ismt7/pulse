@@ -30,7 +30,7 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
         run: >-
@@ -39,7 +39,7 @@ jobs:
           libappindicator3-dev
           librsvg2-dev
           patchelf
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -49,7 +49,7 @@ jobs:
       - run: npm ci
       - run: npm audit --audit-level=high
       - run: npm test
-      - uses: tauri-apps/tauri-action@v0
+      - uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
